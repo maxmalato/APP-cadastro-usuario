@@ -1,0 +1,85 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+
+    & h1 {
+        text-align: center;
+        color: #006666;
+    }
+
+    & input {
+        padding: 15px 5px;
+        border-radius: 7px;
+        border: none;
+        width: 80%;
+        font-size: 16px;
+    }
+
+    & input:focus,
+    textarea:focus,
+    select:focus {
+        outline: 0;
+    }
+
+    & button {
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: .3s;
+        background-color: #008584;
+        color: #f5f5f5;
+    }
+}
+
+.form>input::placeholder {
+    font-size: 16px;
+    padding-left: 2px;
+}
+
+.form>button:hover {
+    background-color: #006666;
+}
+
+.container-register {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #008584;
+    width: 400px;
+    transition: .3s;
+
+    & .registers {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        color: #f5f5f5;
+
+        & p {
+            font-weight: 400;
+            padding: 5px;
+        }
+
+        & span {
+            font-weight: bold;
+        }
+    }
+
+    & .trash button {
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        transition: .3s;
+    }
+
+    & .trash button:hover {
+        background-color: #cccccc;
+    }
+}
