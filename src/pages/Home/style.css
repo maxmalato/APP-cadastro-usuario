@@ -1,8 +1,10 @@
 .form {
     display: flex;
     flex-direction: column;
+    width: 95%;
     gap: 20px;
     align-items: center;
+    margin-top: 50px;
 
     & h1 {
         text-align: center;
@@ -52,7 +54,7 @@
     padding: 10px;
     border-radius: 10px;
     background-color: #008584;
-    width: 400px;
+    width: 100%;
     transition: .3s;
 
     & .registers {
@@ -80,6 +82,18 @@
     }
 
     & .trash button:hover {
-        background-color: #cccccc;
+        background-color: #dedede;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 500px) {
+    .container-register {
+        flex-direction: column;
+        gap: 20px;
+
+        & .trash button {
+            width: 70px;
+        }
     }
 }
