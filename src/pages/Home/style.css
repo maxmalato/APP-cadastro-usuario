@@ -1,7 +1,6 @@
 .form {
     display: flex;
     flex-direction: column;
-    width: 95%;
     gap: 20px;
     align-items: center;
     margin-top: 50px;
@@ -15,7 +14,7 @@
         padding: 15px 5px;
         border-radius: 7px;
         border: none;
-        width: 80%;
+        width: 95%;
         font-size: 16px;
     }
 
@@ -43,7 +42,7 @@
 }
 
 .form>button:hover {
-    background-color: #006666;
+    background-color: #019c9c ;
 }
 
 .container-register {
@@ -54,18 +53,19 @@
     padding: 10px;
     border-radius: 10px;
     background-color: #008584;
-    width: 100%;
     transition: .3s;
 
     & .registers {
         display: flex;
         flex-direction: column;
         gap: 5px;
-        color: #f5f5f5;
+        color: #ffffff;
 
         & p {
-            font-weight: 400;
             padding: 5px;
+            max-width: 350px;
+            word-wrap: break-word;
+            line-height: 1.6;
         }
 
         & span {
@@ -82,18 +82,23 @@
     }
 
     & .trash button:hover {
-        background-color: #dedede;
+        background-color: #f93a37;
+        fill: white;
     }
 }
 
 /* MOBILE */
 @media (max-width: 500px) {
+    .form h1 {
+        font-size: 28px;
+    }
+
     .container-register {
         flex-direction: column;
         gap: 20px;
 
         & .trash button {
-            width: 70px;
+            width: 80px;
         }
     }
 }

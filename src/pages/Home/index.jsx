@@ -3,17 +3,17 @@ import './style.css'
 import api from '../../services/api.js';
 
 function Home() {
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState([]);
+  const [age, setAge] = useState(''); // Estado para armazenar o valor da idade
 
-  const inputName = useRef()
-  const inputEmail = useRef()
-  const inputAge = useRef()
+  const inputName = useRef();
+  const inputEmail = useRef();
+  const inputAge = useRef();
 
   // LIST USERS
   async function getUsers() {
-    const usersFromAPI = await api.get('/users')
-
-    setUsers(usersFromAPI.data)
+    const usersFromAPI = await api.get('/users');
+    setUsers(usersFromAPI.data);
   }
 
   // CREATE USERS
@@ -21,43 +21,50 @@ function Home() {
     await api.post('/createUser', {
       name: inputName.current.value,
       email: inputEmail.current.value,
-      age: inputAge.current.value
-    })
+      age: age
+    });
 
     // RELOAD THE PAGE
-    await getUsers()
+    await getUsers();
 
     // CLEAR INPUTS
-    clearInputs()
+    clearInputs();
   }
 
   // DELETE USERS
   async function deleteUser(id) {
-    await api.delete(`/deleteUser/${id}`)
-
-    getUsers()
+    await api.delete(`/deleteUser/${id}`);
+    getUsers();
   }
 
   useEffect(() => {
-    getUsers()
-  }, [])
+    getUsers();
+  }, []);
 
   // CLEAR INPUT FIELDS
   function clearInputs() {
-    inputName.current.value = ''
-    inputEmail.current.value = ''
-    inputAge.current.value = ''
+    inputName.current.value = '';
+    inputEmail.current.value = '';
+    inputAge.current.value = '';
+    setAge('');
   }
 
+  // Handle age input change
+  const handleAgeChange = (event) => {
+    const value = event.target.value;
+    if (value.length <= 3 && /^\d*$/.test(value)) { // Check if length is <= 3 and value is a number
+      setAge(value);
+    }
+  };
 
   return (
     <div className='container'>
       <form className='form'>
         <h1>Cadastro de Usuários</h1>
 
-        <input type="text" name="name" placeholder='Nome Completo' ref={inputName} />
-        <input type="email" name="email" placeholder='E-mail' ref={inputEmail} />
-        <input type="number" name="age" placeholder='Idade' ref={inputAge} />
+        <input type="text" name="name" placeholder='Nome Completo' ref={inputName} maxLength={100} />
+        <input type="email" name="email" placeholder='E-mail' ref={inputEmail} maxLength={254} />
+        <input type="number" name="age"  placeholder='Idade'  ref={inputAge} value={age} onChange={handleAgeChange} min="0" max="999" />
 
         <button type='button' onClick={createUSer}>Cadastrar</button>
       </form>
@@ -83,4 +90,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Home;
