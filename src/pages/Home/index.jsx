@@ -18,6 +18,12 @@ function Home() {
 
   // CREATE USERS
   async function createUSer() {
+    if(!inputName.current.value.trim()) {
+      alert("Não encontrei o seu nome. Poderia digitá-lo?")
+
+      return;
+    }
+
     await api.post('/createUser', {
       name: inputName.current.value,
       email: inputEmail.current.value,
