@@ -18,7 +18,7 @@ function Home() {
 
   // CREATE USERS
   async function createUSer() {
-    if(!inputName.current.value.trim()) {
+    if (!inputName.current.value.trim()) {
       alert("Não encontrei o seu nome. Poderia digitá-lo?")
 
       return;
@@ -70,7 +70,7 @@ function Home() {
 
         <input type="text" name="name" placeholder='Nome Completo' ref={inputName} maxLength={100} />
         <input type="email" name="email" placeholder='E-mail' ref={inputEmail} maxLength={254} />
-        <input type="number" name="age"  placeholder='Idade'  ref={inputAge} value={age} onChange={handleAgeChange} min="0" max="999" />
+        <input type="number" name="age" placeholder='Idade' ref={inputAge} value={age} onChange={handleAgeChange} min="0" max="999" />
 
         <button type='button' onClick={createUSer}>Cadastrar</button>
       </form>
