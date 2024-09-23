@@ -97,6 +97,10 @@
         flex-direction: column;
         gap: 20px;
 
+        & .registers {
+            align-self: self-start;
+        }
+
         & .trash button {
             width: 80px;
         }
